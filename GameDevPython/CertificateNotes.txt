@@ -1,0 +1,92 @@
+* pygame.init() to use all the modules or one at the time for using in the program
+* Quitting. pygame.quit() this will uninitialize all the module.The program will continue
+* sys.exit(), exit(), os.exit(). Exit the whole python program. 
+
+pygame.display.init() //initialize the display module
+pygame.display.set_mode(size=(200,300), flags=0, depth=0) //set_mode will set the window. The width and height of the windoe here is 200px and 300px. Deapth will set the color
+pygame.display.update() //update a portion of screens 
+
+===========================================================
+Events--> A python class 
+
+pygame.Event.get //status of the game. Like clicking the game, hovering etc
+pygame.event.Event //create the event object to store all the events. 
+pygame.event.EventType //the type of event. Like someone press the quit button and closed the window.
+
+for eventin pygame.event.get() // get the data of events thaat has happened.
+
+===========================================================
+loops-->
+
+setup game-->Event Handling--.updat0e game--> update screen.
+
+===========================================================
+to use the pygame in the program we are making we first need to import the libraries 
+import pygame 
+And then we need to initialize the pygame libraries 
+pygame.init()
+
+After that we need to set the display by
+gamed= pygame.display.set_mode((400,200)) or what we need to set 
+
+then we need to set the caption for the game we are making. That can be anything Like
+pygame.display.set_caption("My firt game app") //This is also the title of the application 
+
+Then we set the clock in the game application
+clock= pygame.time.clock()
+stop= False
+
+while not stop:
+    for event in pygame.event.get()
+        if event.type==pygame.QUIT:
+            stop = True
+
+===========================================================
+pygame.draw-->
+ with pygame.draw we can create many shapes by adding them after pygame.draw for example
+    pygame.draw.line
+
+===========================================================
+creating image and animimation in a screen-->
+    we use Blit funtion to create the pixel image in the screen
+    blit(background,(x,y)) here x and y are the coordinates for the image
+    Rect(left,top,width,height) for the image so we know where to put the image
+How to create a blit function-->>
+steps>  create screen
+        create object
+        copy image or object to surface using blit
+        update the display to show it.
+
+===========================================================
+how to take input from a user-->
+    Keyboard>>
+    get_pressed()
+    get_mods()
+    key constant> k_
+
+    Mouse>>
+    get_post()
+    get_rel()
+    get_pressed()
+    
+    Joystick>>
+    get_axis()
+    get_ball()
+    get_button()
+    get_hat()
+    
+when the user press multiple keys we need to make sure that they execute in the correct order.
+For that we use Event Handling.
+
+Keyboard>>
+When the user press any button on the keyborad KEYUP will be triggered.
+And when user release the key KEYDOWN will be triggered.
+
+Mouse>>
+MouseButtonUp
+MouseButtonDown
+MouseMotion
+
+we can also create a custom event for the program.
+
+===========================================================
