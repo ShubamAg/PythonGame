@@ -14,17 +14,23 @@ The coordinate of Y start from top and goes up while going down the screen'''
 
 pygame.display.set_caption("Space Game")
 
-#Setting the background of our game
-BG = pygame.transform.scale(pygame.image.load("BackGround.jpg"),(1200,800) )
-
 #Initializing the width and height of the player with velocity and fonts for the game
-Player_width = 40
-Player_hight = 60
+Player_width = 70
+Player_hight = 70
 Player_Vel= 5
-Star_width = 12
-Star_height = 20
+Star_width = 25
+Star_height = 25
 Star_vel = 3
 Font = pygame.font.SysFont("comicsans", 25)
+
+
+#Setting the background of our game
+BG = pygame.transform.scale(pygame.image.load("BackGround.jpg"),(1200,800) )
+Player_img= pygame.image.load("Plane2D.png").convert_alpha()
+Meteor_img= pygame.image.load("Meteor2D.png").convert_alpha()
+
+Player_img = pygame.transform.scale(Player_img, (Player_hight, Player_width))
+Meteor_img = pygame.transform.scale(Meteor_img, (Star_height, Star_width))
 
 
 #creating a simple function to have all the basic things like player and timer
@@ -34,10 +40,13 @@ def draw(player, elapsed_time, stars):
     time_text = Font.render( f"time : {round (elapsed_time)}s", 1, "white" )
     disp.blit(time_text, (10,10))
     
-    pygame.draw.rect(disp, "red", player)
+    #player
+    #pygame.draw.rect(disp, "red", player)
+    disp.blit(Player_img, (player.x, player.y))
 
     for star in stars:
-        pygame.draw.rect(disp, "white", star)
+        #pygame.draw.rect(disp, "white", star)
+        disp.blit(Meteor_img, (star.x, star.y))
 
     pygame.display.update()
 
